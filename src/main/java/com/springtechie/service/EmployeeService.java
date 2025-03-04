@@ -5,6 +5,8 @@ import com.springtechie.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService {
 
@@ -31,6 +33,20 @@ public class EmployeeService {
 
     public String deleteEmployee(int id) {
       employeeRepository.deleteById(id);
+        System.out.println("Hello Raja");
       return "Deleted Successfully";
+    }
+
+    public long countNoOfRecords() {
+       return employeeRepository.count();
+    }
+
+    public List<Employee> findAllRecords() {
+      return employeeRepository.findAll();
+    }
+
+    public String saveEmployees(List<Employee> employees) {
+        employeeRepository.saveAll(employees);
+        return "Employees saved Successfully";
     }
 }

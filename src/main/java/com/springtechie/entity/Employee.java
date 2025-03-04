@@ -15,7 +15,7 @@ public class Employee {
     @Column(name = "emp_lastname")
     private String lastName; // emp_lastname
     @Column(name ="emp_salary" )
-    private double salary; // emp_salary
+    private Double salary; // emp_salary
 
     public int getId() {
         return id;
@@ -41,15 +41,15 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
-    public Employee(int id, String firstName, String lastName, double salary) {
+    public Employee(int id, String firstName, String lastName, Double salary) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
