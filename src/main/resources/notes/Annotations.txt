@@ -9,7 +9,7 @@ Some Important annotations and points
     this generates the id value of the table automatically by increment 1 every time.
 @Column(name = "emp_id") : use this annotation to specify name of the column in database(Optional).
 
-Bean : is same as object, but creating and managing , destroying object is taken care by spring.
+@Bean : is same as object, but creating and managing , destroying object is taken care by spring.
 @Service : To mark this class a  spring to bean , manage and delete object. Use this annotation on top of the class which has business logic.
 @Component: IT is same as @Service annotation, but more generic.(A class which contains non-business logic).
 @Repository: It is same as above two, but use this on the class which interacts with DB.

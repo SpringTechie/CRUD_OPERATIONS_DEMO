@@ -1,0 +1,32 @@
+What is statusCodes?
+It indicates whether an api call was successfull or not.
+We have 5 categories
+1XX:(Informational)
+100(Continue): This response code indicates that the client should continue request or ignore.
+102(processing): request has been received by server , but no status was avaiable at the the time of response.
+
+2XX:(Success)
+200(OK):The request was success
+201(Created):Indicates that request has successes and new resource is created(POST/PUT).
+202(Accepted): Indicates that request received but not completed.
+204:(No Content): The server accepted request but returned empty response.
+
+3XX:(Redirection):
+300(Multiple choices): The request has more than one response. then user has to choose one.
+301(Moved Permanently): The request resource has been changed permanantly.
+
+4XX(Client Error):
+400 ( Bad Request): The server does not understand request due to bad syntax
+401(UnAuthorized): It indicates that request requires user authencation.
+403(Forbidden): Unauthorized request
+404 (Not found): The server can not find the requested url.
+405(Method not allowed): If request method type is incorrect.
+
+500(Server Error):
+500( Internal Server): The server encounted unexpected error.
+501:(Not Implemented): The http method does not support by server.
+502(Bad Gateway): when server gets an invalid response.
+503(Service Unavailable): The server is down.
+504(Gateway Timeout): if we dont get response within the time.
+
+

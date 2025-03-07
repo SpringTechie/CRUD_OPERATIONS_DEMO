@@ -3,6 +3,8 @@ package com.springtechie.controller;
 import com.springtechie.entity.Employee;
 import com.springtechie.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class EmployeeController {
@@ -32,14 +35,18 @@ public class EmployeeController {
     // to create employee
     @PostMapping("/save")
     public String acceptEmployeeInfo(@RequestBody Employee employee) {
+
         return employeeService.saveEmployee(employee);
     }
 
     // to read data from db
     @GetMapping("/get/id/{id}")
-    // http://localhost:8080/get/id/1
-    public Employee fetchEmployeeById(@PathVariable int id) {
-        return employeeService.getEmployee(id);
+    public ResponseEntity<Employee> fetchEmployeeById(@PathVariable int id) {
+        Optional<Employee> employee = employeeService.getEmployee(id);
+        if(employee.isPresent()) {
+            return new ResponseEntity<>(employee.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     // to update data
