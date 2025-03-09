@@ -18,9 +18,10 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public String saveEmployee(Employee employee) {
-        employeeRepository.save(employee);
-        return "Employee Saved Successfully";
+    public Employee saveEmployee(Employee employee) {
+       Employee savedEmployee =  employeeRepository.save(employee);
+       return savedEmployee;
+
     }
 
     public Optional<Employee> getEmployee(int id) {

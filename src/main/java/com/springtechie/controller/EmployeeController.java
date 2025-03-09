@@ -34,9 +34,13 @@ public class EmployeeController {
 
     // to create employee
     @PostMapping("/save")
-    public String acceptEmployeeInfo(@RequestBody Employee employee) {
+    public ResponseEntity<String> acceptEmployeeInfo(@RequestBody Employee employee) {
 
-        return employeeService.saveEmployee(employee);
+        Employee employee1 = employeeService.saveEmployee(employee);
+        if(employee1 != null) {
+            return new ResponseEntity<>("Employee Saved Successfully",HttpStatus.CREATED);
+        }
+        return new ResponseEntity<>("Employee failed to save",HttpStatus.BAD_REQUEST);
     }
 
     // to read data from db

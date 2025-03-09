@@ -1,0 +1,18 @@
+Profiles in SpringBoot.
+1.profiles allows you to configure diffrent environments by defining specific property files.
+Implementation:
+Now create diff configuration files for each env.
+application-dev.properties
+application-stage.properties
+application-prod.properties
+
+Now define env specific properties.
+How to activate env?
+In default application properties add this property.
+spring.profiles.active=<env_name>
+
+Internal Working of profiles.
+When application starts spring will checks weather any profile is activated or not.
+if any profile is active then it will read properties from that prropety file else fall back to default (application.properties file).
+Example:
+I have defined server.port in dev profile , and activated this profile , now application will load values form dev profile.
