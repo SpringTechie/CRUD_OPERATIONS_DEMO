@@ -40,3 +40,6 @@ for security reasons it is disabled .
 to enable this endpoint use this.
 management.endpoint.shutdown.enabled = true
 
+Rashmi - Code
+
+
