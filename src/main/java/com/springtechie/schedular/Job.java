@@ -12,7 +12,7 @@ public class Job {
 
     @Scheduled(fixedRate = 5000,initialDelay = 1000)
     public void myJob() {
-        System.out.println("Hello Good Morning");
+        System.out.println("Hello Good Evening");
     }
 
 }

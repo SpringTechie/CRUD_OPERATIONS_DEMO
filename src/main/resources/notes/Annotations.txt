@@ -34,7 +34,7 @@ Example :  @GetMapping("/get")
 
     output = Hello
 
-@Controller: This is same RestController but it return one html page.
+@Controller: This is same RestController, but it returns one html page.
 
 Example: @GetMapping("/get")
             public String test() {
@@ -42,3 +42,37 @@ Example: @GetMapping("/get")
             }
             // it returns Hello.html page
 
+
+How do we know where annotations applicable?
+Annotations are always starts with Capital letter.
+There are two annotation that tells where and when annotation written.
+@Target({ElementType.TYPE, ElementType.METHOD}) : This tells where we can write annotation(either method,field,constructor,class,interface,enum)
+if
+1. TYPE : It is applicable on class and interface
+2. FIELD : Field declaration
+3. METHOD : On method
+4. PARAMETER : it applicable on method argument.
+5. CONSTRUCTOR : On constructor
+6. <complete this> and write example for each type.
+
+@Retention(RetentionPolicy.RUNTIME): This tells when this should act.
+
+    /**
+     * Annotations are to be discarded by the compiler.
+     */
+    SOURCE,
+
+    /**
+     * Annotations are to be recorded in the class file by the compiler
+     * but need not be retained by the VM at run time.  This is the default
+     * behavior.
+     */
+    CLASS,
+
+    /**
+     * Annotations are to be recorded in the class file by the compiler and
+     * retained by the VM at run time, so they may be read reflectively.
+     *
+     * @see java.lang.reflect.AnnotatedElement
+     */
+    RUNTIME
