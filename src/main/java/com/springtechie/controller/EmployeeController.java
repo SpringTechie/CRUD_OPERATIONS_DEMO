@@ -19,18 +19,22 @@ import java.util.Optional;
 @RestController
 public class EmployeeController {
 
+    @Autowired
+    private EmployeeService employeeService;
 
-    private final EmployeeService employeeService;
+//    @Autowired
+//    public void setEmployeeService(EmployeeService employeeService) {
+//        System.out.println("Hello DI using Setter");
+//        this.employeeService = employeeService;
+//    }
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
+    public EmployeeController(@Autowired EmployeeService employeeService) {
+        System.out.println("Hello DI using Cons");
+        System.out.println(employeeService.hashCode());
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/get")
-    public String test() {
-        return "Hello";
-    }
 
     // to create employee
     @PostMapping("/save")
